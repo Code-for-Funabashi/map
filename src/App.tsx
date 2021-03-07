@@ -1,6 +1,5 @@
 import Leaflet from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "./App.css";
 import "leaflet/dist/leaflet.css";
 
 Leaflet.Icon.Default.imagePath =
