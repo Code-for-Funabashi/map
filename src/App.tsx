@@ -3,7 +3,7 @@ import './App.css'
 import 'leaflet/dist/leaflet.css'
 
 //船橋市のlat lon
-const position = [35.694722, 139.9825]
+const position:[number, number] = [35.694722, 139.9825]
 const App = () => {
   return (
     <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ height: '100vh' }}>
