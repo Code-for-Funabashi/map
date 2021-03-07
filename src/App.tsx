@@ -1,6 +1,10 @@
+import Leaflet from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
+
+Leaflet.Icon.Default.imagePath =
+  "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
