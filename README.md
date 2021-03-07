@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# kosodate-map
+船橋市の子育て情報がひと目でわかる地図
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
