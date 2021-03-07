@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./App.css";
 import "leaflet/dist/leaflet.css";
 
-//船橋市のlat lon
+//船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
 const App = () => {
   return (
