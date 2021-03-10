@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "kosodate-map",
+  "name": "船橋子育て地域マップ",
   "icons": [
     {
       "src": "favicon.ico",
