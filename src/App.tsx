@@ -1,15 +1,12 @@
 import Leaflet from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import * as React from "react";
 
 // import LocateControl from "./LocateControl"
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
 
-const facility_list = [
-  [35.693722, 139.9825],
-  [35.695722, 139.9825],
-];
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
 const Map = (props: any) => {
@@ -57,11 +54,30 @@ const Map = (props: any) => {
   );
 };
 
-const App = () => {
-  return (
-    <>
-      <Map facilityList={facility_list} />
-    </>
-  );
-};
-export default App;
+interface Props {}
+
+interface State {
+  editingUserName: string;
+  facilityList: Array<any>;
+}
+
+export default class App extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    const defaultUserName = "defaultUserName";
+    this.state = {
+      facilityList: [
+        [35.693722, 139.9825],
+        [35.695722, 139.9825],
+      ],
+      editingUserName: defaultUserName,
+    };
+  }
+  public render() {
+    return (
+      <>
+        <Map facilityList={this.state.facilityList} />
+      </>
+    );
+  }
+}
