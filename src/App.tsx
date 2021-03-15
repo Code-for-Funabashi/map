@@ -2,6 +2,9 @@ import Leaflet from "leaflet";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import * as React from "react";
+import { Navbar, Nav } from "react-bootstrap";
+import LOGO from "./logo.svg";
+import { iconPerson } from "./Icon";
 
 // import LocateControl from "./LocateControl"
 Leaflet.Icon.Default.imagePath =
@@ -41,8 +44,17 @@ const Map = (props: any) => {
           </Popup>
         </Marker>
         {facilityList.map((position: any) => {
+          if (Math.random() > 0.2) {
+            return (
+              <Marker position={position}>
+                <Popup>
+                  A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+              </Marker>
+            );
+          }
           return (
-            <Marker position={position}>
+            <Marker position={position} icon={iconPerson}>
               <Popup>
                 A pretty CSS3 popup. <br /> Easily customizable.
               </Popup>
@@ -61,14 +73,28 @@ interface State {
   facilityList: Array<any>;
 }
 
+const CustomNavBar = () => {
+  return (
+    <Navbar bg="dark" variant="dark">
+      <img src={LOGO} width="30" height="30" alt="React Bootstrap logo" />
+      <Nav className="mr-auto">
+        <Nav.Link href="#保育園">Home</Nav.Link>
+        <Nav.Link href="#幼稚園">Features</Nav.Link>
+        <Nav.Link href="#小児科">Pricing</Nav.Link>
+      </Nav>
+    </Navbar>
+  );
+};
+
 export default class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     const defaultUserName = "defaultUserName";
     this.state = {
       facilityList: [
-        [35.693722, 139.9825],
-        [35.695722, 139.9825],
+        [35.694722, 139.9925],
+        [35.694722, 139.9725],
+        [35.682722, 139.9525],
       ],
       editingUserName: defaultUserName,
     };
@@ -76,6 +102,7 @@ export default class App extends React.Component<Props, State> {
   public render() {
     return (
       <>
+        <CustomNavBar />
         <Map facilityList={this.state.facilityList} />
       </>
     );
