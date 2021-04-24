@@ -28,6 +28,7 @@ const KosodateMap = () => {
     <MapContainer
       center={position}
       zoom={13}
+      tap={false} // to support safari https://github.com/Leaflet/Leaflet/issues/7266
       scrollWheelZoom={true}
       style={{ height: "100vh" }}
     >
