@@ -1,8 +1,12 @@
 import type { Icon } from "leaflet";
 import { Marker, Popup } from "react-leaflet";
-import { IPoint } from "./Points";
+import { PointInfo } from "./PointLayer";
 
-export const Point = (props: { point: IPoint; type: string; icon: Icon }) => {
+export const Point = (props: {
+  point: PointInfo;
+  type: string;
+  icon: Icon;
+}) => {
   return (
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
       <Popup>

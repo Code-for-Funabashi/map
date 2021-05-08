@@ -1,11 +1,11 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { Points, IPointMeta } from "./Points";
+import { PointLayer, PointMeta } from "./PointLayer";
 import { blueIcon, greenIcon } from "./Icons";
 
 // XXX: データがmainにマージされたらmainブランチを参照するようにする。
 // FIXME: 複数のtypeで位置情報が一致すると画面上わからなくなる。
-const pointCatalog: IPointMeta[] = [
+const pointCatalog: PointMeta[] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%BF%9D%E8%82%B2%E5%9C%92.json",
@@ -36,7 +36,7 @@ const KosodateMap = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {pointCatalog.map((item) => Points(item))}
+      {pointCatalog.map((item) => PointLayer(item))}
     </MapContainer>
   );
 };

@@ -3,41 +3,41 @@ import type { Icon } from "leaflet";
 import { useState, useEffect } from "react";
 import { Point } from "./Point";
 
-export interface IPointMeta {
+export interface PointMeta {
   url: string;
   type: string;
   icon: Icon;
 }
 
-interface IPointDetail {
+interface PointInfoDetail {
   address?: string;
   phone_number?: string;
 }
 
-export interface IPoint {
+export interface PointInfo {
   name: string;
   lat: number;
   lng: number;
-  details: IPointDetail;
+  details: PointInfoDetail;
 }
 
 const loadFeatures = async (url: string) => {
-  const res = await axios.get<[IPoint]>(url);
+  const res = await axios.get<[PointInfo]>(url);
   return res.data;
 };
 
-export const Points = (featureMeta: IPointMeta) => {
-  const [features, setFeatures] = useState<IPoint[]>([]);
+export const PointLayer = (pointMeta: PointMeta) => {
+  const [features, setFeatures] = useState<PointInfo[]>([]);
 
   useEffect(() => {
-    loadFeatures(featureMeta.url).then((data) => setFeatures(data));
-  }, [featureMeta]);
+    loadFeatures(pointMeta.url).then((data) => setFeatures(data));
+  }, [pointMeta]);
 
   return features.map((feature) => (
     <Point
       point={feature}
-      type={featureMeta.type}
-      icon={featureMeta.icon}
+      type={pointMeta.type}
+      icon={pointMeta.icon}
       key={feature.name}
     />
   ));
