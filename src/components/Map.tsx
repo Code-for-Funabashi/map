@@ -8,15 +8,9 @@ import { blueIcon, greenIcon } from "./Icons";
 const pointCatalog: PointMeta[] = [
   {
     url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%BF%9D%E8%82%B2%E5%9C%92.json",
-    type: "保育園",
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/syokibohoikuichiran.json",
+    type: "小規模保育園",
     icon: greenIcon,
-  },
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json",
-    type: "一時保育",
-    icon: blueIcon,
   },
 ];
 
