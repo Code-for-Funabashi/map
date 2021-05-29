@@ -3,8 +3,6 @@ import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
 import { greenIcon, blueIcon } from "./Icons";
 
-// XXX: データがmainにマージされたらmainブランチを参照するようにする。
-// FIXME: 複数のtypeで位置情報が一致すると画面上わからなくなる。
 const pointCatalog: PointMeta[] = [
   {
     url:
