@@ -1,22 +1,34 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
-import { blueIcon, greenIcon } from "./Icons";
+import { greenIcon } from "./Icons";
 
 // XXX: データがmainにマージされたらmainブランチを参照するようにする。
 // FIXME: 複数のtypeで位置情報が一致すると画面上わからなくなる。
 const pointCatalog: PointMeta[] = [
   {
     url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%BF%9D%E8%82%B2%E5%9C%92.json",
-    type: "保育園",
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/syokibohoikuichiran.json",
+    type: "小規模保育園",
     icon: greenIcon,
   },
   {
     url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json",
-    type: "一時保育",
-    icon: blueIcon,
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/korituhoikusyoitiran.json",
+    type: "公立保育園",
+    icon: greenIcon,
+  },
+  {
+    url:
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/sirituhoikusyoitiran.json",
+    type: "私立保育園",
+    icon: greenIcon,
+  },
+  {
+    url:
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/ninteikodomoenitiran.json",
+    type: "認定こども園",
+    icon: greenIcon,
   },
 ];
 
