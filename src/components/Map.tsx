@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
-import { greenIcon } from "./Icons";
+import { greenIcon, blueIcon } from "./Icons";
 
 // XXX: データがmainにマージされたらmainブランチを参照するようにする。
 // FIXME: 複数のtypeで位置情報が一致すると画面上わからなくなる。
@@ -29,6 +29,12 @@ const pointCatalog: PointMeta[] = [
       "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/ninteikodomoenitiran.json",
     type: "認定こども園",
     icon: greenIcon,
+  },
+  {
+    url:
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/kouminkan.json",
+    type: "公民館",
+    icon: blueIcon,
   },
 ];
 
