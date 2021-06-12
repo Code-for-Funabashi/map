@@ -7,7 +7,7 @@ const App = () => {
     <div>
       <Router>
         <Route path="/kosodate" component={Kosodate} />
-        <Link to="/kosodate"> 子育てマップ</Link>
+        <Link to="/kosodate">子育てマップ</Link>
       </Router>
     </div>
   );
