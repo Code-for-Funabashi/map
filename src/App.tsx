@@ -6,8 +6,8 @@ const App = () => {
   return (
     <div>
       <Router>
-        <Route path="/kosodate" component={Kosodate} />
-        <Link to="/kosodate">子育てマップ</Link>
+        <Route path="/map/kosodate" component={Kosodate} />
+        <Link to="/map/kosodate">子育てマップ</Link>
       </Router>
     </div>
   );
