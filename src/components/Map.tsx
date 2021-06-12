@@ -5,7 +5,7 @@ import { PointLayer, PointMeta } from "./PointLayer";
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
 
-const KosodateMap = (props: { pointCatalog: PointMeta[] }) => {
+const Map = (props: { pointCatalog: PointMeta[] }) => {
   return (
     <MapContainer
       center={position}
@@ -23,4 +23,4 @@ const KosodateMap = (props: { pointCatalog: PointMeta[] }) => {
   );
 };
 
-export default KosodateMap;
+export default Map;
