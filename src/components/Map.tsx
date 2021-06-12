@@ -1,45 +1,11 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
-import { greenIcon, blueIcon } from "./Icons";
-
-const pointCatalog: PointMeta[] = [
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/syokibohoikuichiran.json",
-    type: "小規模保育園",
-    icon: greenIcon,
-  },
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/korituhoikusyoitiran.json",
-    type: "公立保育園",
-    icon: greenIcon,
-  },
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/sirituhoikusyoitiran.json",
-    type: "私立保育園",
-    icon: greenIcon,
-  },
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/ninteikodomoenitiran.json",
-    type: "認定こども園",
-    icon: greenIcon,
-  },
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/kouminkan.json",
-    type: "公民館",
-    icon: blueIcon,
-  },
-];
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
 
-const KosodateMap = () => {
+const KosodateMap = (props: { pointCatalog: PointMeta[] }) => {
   return (
     <MapContainer
       center={position}
@@ -52,7 +18,7 @@ const KosodateMap = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | <a href="http://code4funabashi.org/">CodeForFunabashi</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {pointCatalog.map((item) => PointLayer(item))}
+      {props.pointCatalog.map((item) => PointLayer(item))}
     </MapContainer>
   );
 };
