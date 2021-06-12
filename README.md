@@ -1,6 +1,6 @@
-# kosodate-map
-船橋市の子育て情報がひと目でわかる地図  
-https://code-for-funabashi.github.io/kosodate-map/
+# map
+Code For Funabashiの地図アプリ
+https://code-for-funabashi.github.io/map/
 
 ## Usage
 ```bash
