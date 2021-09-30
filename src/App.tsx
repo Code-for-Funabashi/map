@@ -1,13 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Kosodate from "./components/KosodateMap";
+import Index from "./components/Index";
 
 const App = () => {
   return (
     <div>
       <Router>
-        <Route path="/map/kosodate" component={Kosodate} />
-        <Link to="/map/kosodate">子育てマップ</Link>
+        <Route exact path="/map" component={Index} />
+        <Route exact path="/map/kosodate" component={Kosodate} />
       </Router>
     </div>
   );
