@@ -1,6 +1,7 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
+import { CheckboxLayer } from "./CheckboxLayer";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
@@ -18,7 +19,9 @@ const Map = (props: { pointCatalog: PointMeta[] }) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | <a href="http://code4funabashi.org/">CodeForFunabashi</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {props.pointCatalog.map((item) => PointLayer(item))}
+      <LayersControl position="topright">
+        {props.pointCatalog.map((item) => CheckboxLayer(item))}
+      </LayersControl>
     </MapContainer>
   );
 };
