@@ -1,7 +1,7 @@
-import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+import { LayersControl, LayerGroup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { PointMeta } from "./PointLayer";
-import { CheckboxLayer } from "./CheckboxLayer";
+import { PointLayer, PointMeta } from "./PointLayer";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
@@ -20,7 +20,13 @@ const Map = (props: { pointCatalog: PointMeta[] }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <LayersControl position="topright">
-        {props.pointCatalog.map((item) => CheckboxLayer(item))}
+        {props.pointCatalog.map((item) => {
+          return (
+            <LayersControl.Overlay name={item.type} checked>
+              <LayerGroup>{PointLayer(item)}</LayerGroup>
+            </LayersControl.Overlay>
+          );
+        })}
       </LayersControl>
     </MapContainer>
   );
