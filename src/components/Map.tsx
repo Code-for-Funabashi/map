@@ -24,9 +24,9 @@ const Map = (props: { pointCatalog: PointMeta[] }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <LayersControl position="topright">
-        {props.pointCatalog.map((item) => {
+        {props.pointCatalog.map((item, index) => {
           return (
-            <LayersControl.Overlay name={item.type} checked>
+            <LayersControl.Overlay name={item.type} key={index} checked>
               <LayerGroup>{PointLayer(item)}</LayerGroup>
             </LayersControl.Overlay>
           );
