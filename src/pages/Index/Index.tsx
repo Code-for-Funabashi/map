@@ -5,6 +5,8 @@ import { PointMeta } from "types/Point";
 import Map from "components/Map/Map";
 import { greenIcon, blueIcon } from "components/Map/Icons";
 
+import "styles/full-screen.scss";
+
 const pointCatalog: PointMeta[] = [
   {
     url:
