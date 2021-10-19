@@ -1,6 +1,6 @@
 # map
 Code For Funabashiの地図アプリ
-https://code-for-funabashi.github.io/map/
+https://funabashi-map.netlify.app/
 
 ## Usage
 ```bash
