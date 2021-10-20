@@ -20,7 +20,7 @@ const Map = (props: { pointCatalog: PointMeta[] }) => {
       zoom={13}
       tap={false} // to support safari https://github.com/Leaflet/Leaflet/issues/7266
       scrollWheelZoom={true}
-      style={{ height: "100vh" }}
+      style={{ height: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | <a href="http://code4funabashi.org/">CodeForFunabashi</a>'

@@ -5,11 +5,11 @@ import Index from "pages/Index/Index";
 
 const App: FC = () => {
   return (
-    <div>
+    <>
       <Router>
         <Route exact path="/" component={Index} />
       </Router>
-    </div>
+    </>
   );
 };
 export default App;
