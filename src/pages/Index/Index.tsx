@@ -5,6 +5,8 @@ import { PointMeta } from "types/Point";
 import Map from "components/Map/Map";
 import { greenIcon, blueIcon } from "components/Map/Icons";
 
+import "styles/full-screen.scss";
+
 const pointCatalog: PointMeta[] = [
   {
     url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/syokibohoikuichiran.json",
