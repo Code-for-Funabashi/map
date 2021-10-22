@@ -1,78 +1,102 @@
-import React, { FC, useState, useEffect } from "react";
+import React, {
+  FC,
+  useState,
+  useEffect,
+  ChangeEvent,
+  MouseEventHandler,
+  Dispatch,
+  SetStateAction,
+} from "react";
 import { useMap } from "react-leaflet";
 import L, { Marker, LayerGroup } from "leaflet";
-import { PointInfo, PointMeta } from "../../types/Point";
-import { blueIcon, greenIcon } from "./Icons";
 import axios from "axios";
+
+import { PointInfo, PointMeta } from "types/Point";
+
+import scss from "./Navigation.module.scss";
+
+import { points } from "data/points/points";
 
 const Navigation: FC = () => {
   const map = useMap();
   const [layerGroups, setLayerGroups] = useState<{ [key: string]: LayerGroup }>(
     {}
   );
+  const [layerGroupKeys, setLayerGroupKeys] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   useEffect(() => {
-    Object.keys(layerGroups).forEach((key) => {
-      const layerGroup = layerGroups[key];
-      layerGroup.addTo(map);
-    });
-  }, [layerGroups, map]);
+    Promise.all(
+      points().map((point: PointMeta) => {
+        return axios.get<[PointInfo]>(point.url);
+      })
+    ).then((responses) => {
+      responses.forEach((response, index) => {
+        const type = points()[index].type;
 
-  useEffect(() => {
-    pointsCatalog.forEach((point: PointMeta) => {
-      axios.get<[PointInfo]>(point.url).then((res) => {
         const markers: Marker[] = [];
-        res.data.forEach((marker: PointInfo) => {
-          const type = point.type;
+        response.data.forEach((marker: PointInfo) => {
           const name = marker.name;
           const address = marker.details.address;
           const phone = marker.details.phone_number;
           const HTML = `種別: ${type}<br />名前: ${name}<br />住所: ${address}<br />電話番号: ${phone}`;
 
           markers.push(
-            L.marker([marker.lat, marker.lng], { icon: point.icon }).bindPopup(
-              HTML
-            )
+            L.marker([marker.lat, marker.lng], {
+              icon: points()[index].icon,
+            }).bindPopup(HTML)
           );
         });
+
         setLayerGroups((prevState) => {
           return {
             ...prevState,
-            [point.type]: L.layerGroup(markers),
+            [type]: L.layerGroup(markers).addTo(map),
+          };
+        });
+
+        setLayerGroupKeys((prevState) => {
+          return {
+            ...prevState,
+            type: true,
           };
         });
       });
     });
-  }, []);
+  }, [map]);
 
-  return <div></div>;
+  console.log(setLayerGroupKeys);
+
+  return (
+    <div className={scss.navigation}>
+      {Object.keys(layerGroups).map((key, index) => {
+        return (
+          <label key={index}>
+            {key}
+            <input
+              type="checkbox"
+              value={key}
+              onChange={(e) => checkBoxClickHandler(e, setLayerGroupKeys)}
+              checked={layerGroupKeys[key]}
+              key={Math.random()}
+            />
+          </label>
+        );
+      })}
+    </div>
+  );
 };
 export default Navigation;
 
-const pointsCatalog: PointMeta[] = [
-  {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/syokibohoikuichiran.json",
-    type: "小規模保育園",
-    icon: greenIcon,
-  },
-  {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/korituhoikusyoitiran.json",
-    type: "公立保育園",
-    icon: greenIcon,
-  },
-  {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/sirituhoikusyoitiran.json",
-    type: "私立保育園",
-    icon: greenIcon,
-  },
-  {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/ninteikodomoenitiran.json",
-    type: "認定こども園",
-    icon: greenIcon,
-  },
-  {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/kouminkan.json",
-    type: "公民館",
-    icon: blueIcon,
-  },
-];
+const checkBoxClickHandler = (
+  e: ChangeEvent<HTMLInputElement>,
+  setActiveKeys: Dispatch<SetStateAction<{ [key: string]: boolean }>>
+) => {
+  setActiveKeys((prevState) => {
+    return {
+      ...prevState,
+      [e.target.value]: e.target.checked,
+    };
+  });
+};
