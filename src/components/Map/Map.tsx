@@ -1,14 +1,11 @@
 import {
   MapContainer,
   TileLayer,
-  LayersControl,
-  LayerGroup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 import { PointMeta } from "types/Point";
 
-import { PointLayer } from "./PointLayer";
 import Navigation from "./Navigation";
 
 //船橋市役所のlat lon
