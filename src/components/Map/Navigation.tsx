@@ -30,7 +30,7 @@ const Navigation: FC = () => {
           const HTML = `種別: ${type}<br />名前: ${name}<br />住所: ${address}<br />電話番号: ${phone}`;
 
           markers.push(
-            L.marker([marker.lat, marker.lng], { icon: blueIcon }).bindPopup(
+            L.marker([marker.lat, marker.lng], { icon: point.icon }).bindPopup(
               HTML
             )
           );
