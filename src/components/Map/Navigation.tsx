@@ -3,7 +3,6 @@ import React, {
   useState,
   useEffect,
   ChangeEvent,
-  MouseEventHandler,
   Dispatch,
   SetStateAction,
 } from "react";
