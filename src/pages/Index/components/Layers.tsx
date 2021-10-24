@@ -37,10 +37,15 @@ const Layers: FC = () => {
 
         const markers: Marker[] = [];
         response.data.forEach((marker: PointInfo) => {
-          const name = marker.name;
-          const address = marker.details.address;
-          const phone = marker.details.phone_number;
-          const HTML = `種別: ${type}<br />名前: ${name}<br />住所: ${address}<br />電話番号: ${phone}`;
+          const base_url =
+            "https://www.google.com/maps/@?api=1&map_action=pano&parameters&viewpoint=";
+
+          let HTML = "";
+          HTML += `種別: ${type}<br />`;
+          HTML += `施設名: ${marker.name}<br />`;
+          HTML += `住所: ${marker.details.address}<br />`;
+          HTML += `電話番号: ${marker.details.phone_number}<br />`;
+          HTML += `<a href="${base_url}${marker.lat},${marker.lng}" target="_blank" rel="noopener noreferrer">Google Map</a>`;
 
           markers.push(
             L.marker([marker.lat, marker.lng], {
