@@ -14,6 +14,11 @@ const Navigation: FC = () => {
 
   return (
     <div className={scss.navigation}>
+      <div className={scss.app_name}>
+        <span>船橋市子育て</span>
+        <span>地域マップ</span>
+      </div>
+
       <div className={scss.layers}>
         <Layers />
       </div>

@@ -3,21 +3,39 @@
   top: 0;
   right: 0;
   z-index: 1500;
-  padding: .5rem;
   background: #FFF;
   font-size: .75rem;
   pointer-events: auto;
 
+  .app_name {
+    text-align: center;
+    font-size: .85rem;
+    margin: .5rem;
+
+    span {
+      display: inline-block;
+
+      @media screen and (max-width: 750px) {
+        display: block;
+      }
+    }
+  }
+
   .layers {
     display: flex;
     flex-flow: column;
+    margin: .5rem;
 
     label {
       display: flex;
       align-items: center;
       user-select: none;
-      padding: .125rem 0;
+      padding-bottom: .25rem;
       cursor: pointer;
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
 
       span {
         display: block;
