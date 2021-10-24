@@ -14,12 +14,18 @@ const Location: FC = () => {
 
   const onClickHandler = () => {
     setClassName(scss.modal + " " + scss.view);
-    navigator.geolocation.getCurrentPosition((position) => {
-      let lat = position.coords.latitude;
-      let lng = position.coords.longitude;
-      setPosition([[lat, lng], 16]);
-      setClassName(scss.modal);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let lat = position.coords.latitude;
+        let lng = position.coords.longitude;
+        setPosition([[lat, lng], 16]);
+        setClassName(scss.modal);
+      },
+      () => {
+        alert("位置情報の取得に失敗しました。");
+        setClassName(scss.modal);
+      }
+    );
   };
 
   useEffect(() => {
