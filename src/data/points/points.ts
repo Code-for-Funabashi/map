@@ -1,6 +1,6 @@
 import { PointMeta } from "types/Point";
 
-import { blueIcon, greenIcon } from "components/Map/Icons";
+import { blueIcon, greenIcon } from "components/Map/components/Icons";
 
 import json from "./points.json";
 

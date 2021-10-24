@@ -3,7 +3,7 @@ import "leaflet/dist/leaflet.css";
 
 import { PointMeta } from "types/Point";
 
-import Navigation from "./Navigation";
+import Navigation from "./components/Navigation/Navigation";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];

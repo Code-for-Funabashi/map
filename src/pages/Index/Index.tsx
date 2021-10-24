@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { PointMeta } from "types/Point";
 
 import Map from "components/Map/Map";
-import { greenIcon, blueIcon } from "components/Map/Icons";
+import { greenIcon, blueIcon } from "components/Map/components/Icons";
 
 import "styles/full-screen.scss";
 
@@ -36,6 +36,10 @@ const pointCatalog: PointMeta[] = [
 ];
 
 const Index: FC = () => {
-  return <Map pointCatalog={pointCatalog} />;
+  return (
+    <>
+      <Map pointCatalog={pointCatalog} />
+    </>
+  );
 };
 export default Index;
