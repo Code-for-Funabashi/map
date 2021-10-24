@@ -4,6 +4,7 @@ import { useMap } from "react-leaflet";
 
 import Layers from "pages/Index/components/Layers";
 import Location from "pages/Index/components/Location/Location";
+import About from "pages/Index/components/About/About";
 
 import scss from "./Navigation.module.scss";
 
@@ -54,6 +55,10 @@ const Navigation: FC = () => {
             CC BY 4.0
           </a>
         </p>
+      </div>
+
+      <div className={scss.about}>
+        <About />
       </div>
     </div>
   );
