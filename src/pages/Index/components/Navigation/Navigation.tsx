@@ -1,5 +1,6 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import L from "leaflet";
+import { useMap } from "react-leaflet";
 
 import Layers from "pages/Index/components/Layers";
 import Location from "pages/Index/components/Location/Location";
@@ -7,14 +8,26 @@ import Location from "pages/Index/components/Location/Location";
 import scss from "./Navigation.module.scss";
 
 const Navigation: FC = () => {
+  const map = useMap();
+
+  const [className, setClassName] = useState<string>("");
+
   useEffect(() => {
     L.DomEvent.disableClickPropagation(
       document.getElementsByClassName(scss.navigation)[0] as HTMLElement
     );
-  }, []);
+
+    map.on("dragstart", () => {
+      setClassName(scss.transparent);
+    });
+
+    map.on("dragend", () => {
+      setClassName("");
+    });
+  }, [map]);
 
   return (
-    <div className={scss.navigation}>
+    <div className={scss.navigation + " " + className}>
       <div className={scss.app_name}>
         <span>船橋市子育て</span>
         <span>地域マップ</span>

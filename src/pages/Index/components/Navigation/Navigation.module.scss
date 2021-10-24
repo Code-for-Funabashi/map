@@ -6,6 +6,11 @@
   background: #FFF;
   font-size: .75rem;
   cursor: auto;
+  transition: opacity .3s;
+
+  &.transparent {
+    opacity: .5;
+  }
 
   .app_name {
     text-align: center;
