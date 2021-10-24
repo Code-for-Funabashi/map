@@ -6,11 +6,14 @@ import React, {
   Dispatch,
   SetStateAction,
 } from "react";
+import ReactDOMServer from "react-dom/server";
 import { useMap } from "react-leaflet";
 import L, { Marker, LayerGroup } from "leaflet";
 import axios from "axios";
 
 import { PointInfo, PointMeta } from "types/Point";
+
+import Popup from "./Popup";
 
 import { points } from "data/points/points";
 
@@ -37,26 +40,21 @@ const Layers: FC = () => {
 
         const markers: Marker[] = [];
         response.data.forEach((marker: PointInfo) => {
-          const GoogleMapURL = new URL("https://www.google.com/maps/@");
-          GoogleMapURL.searchParams.append("api", "1");
-          GoogleMapURL.searchParams.append("map_action", "pano");
-          GoogleMapURL.searchParams.append("parameters", "");
-          GoogleMapURL.searchParams.append(
-            "viewpoint",
-            `${marker.lat},${marker.lng}`
-          );
-
-          let HTML = "";
-          HTML += `種別: ${type}<br />`;
-          HTML += `施設名: ${marker.name}<br />`;
-          HTML += `住所: ${marker.details.address}<br />`;
-          HTML += `電話番号: ${marker.details.phone_number}<br />`;
-          HTML += `<a href="${GoogleMapURL.toString()}" target="_blank" rel="noopener noreferrer">Google Map</a>`;
-
           markers.push(
             L.marker([marker.lat, marker.lng], {
               icon: points()[index].icon,
-            }).bindPopup(HTML)
+            }).bindPopup(
+              ReactDOMServer.renderToString(
+                <Popup
+                  lat={marker.lat}
+                  lng={marker.lng}
+                  type={type}
+                  name={marker.name}
+                  address={marker.details.address}
+                  phone_number={marker.details.phone_number}
+                />
+              )
+            )
           );
         });
 
