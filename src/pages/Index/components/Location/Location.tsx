@@ -44,7 +44,7 @@ const Location: FC = () => {
   return (
     <>
       <button className={scss.button} onClick={onClickHandler}>
-        現在地に移動する
+        現在地へ
       </button>
       <div className={className}>
         位置情報取得の許可を押していただくと現在地まで自動的に移動します。
