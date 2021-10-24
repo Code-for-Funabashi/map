@@ -32,7 +32,9 @@ const Navigation: FC = () => {
         データ出典元
         <p>
           <a href="https://www.city.funabashi.lg.jp/shisei/toukei/002/opendata.html">
-            船橋データカタログ（船橋市作成）
+            船橋データカタログ
+            <br />
+            船橋市作成
           </a>
           <br />
           <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">
