@@ -31,8 +31,11 @@ const Navigation: FC = () => {
         return axios.get<[PointInfo]>(point.url);
       })
     ).then((responses) => {
+      const types: { [key: string]: boolean } = {};
+      const groups: { [key: string]: LayerGroup } = {};
       responses.forEach((response, index) => {
         const type = points()[index].type;
+        types[type] = true;
 
         const markers: Marker[] = [];
         response.data.forEach((marker: PointInfo) => {
@@ -48,24 +51,22 @@ const Navigation: FC = () => {
           );
         });
 
-        setLayerGroups((prevState) => {
-          return {
-            ...prevState,
-            [type]: L.layerGroup(markers).addTo(map),
-          };
-        });
-
-        setLayerGroupKeys((prevState) => {
-          return {
-            ...prevState,
-            type: true,
-          };
-        });
+        groups[type] = L.layerGroup(markers).addTo(map);
       });
+
+      setLayerGroupKeys(types);
+      setLayerGroups(groups);
     });
   }, [map]);
 
-  console.log(setLayerGroupKeys);
+  useEffect(() => {
+    Object.keys(layerGroupKeys).forEach((key) => {
+      if (layerGroups[key] !== undefined) {
+        map.removeLayer(layerGroups[key]);
+        if (layerGroupKeys[key]) map.addLayer(layerGroups[key]);
+      }
+    });
+  }, [map, layerGroupKeys, layerGroups]);
 
   return (
     <div className={scss.navigation}>
@@ -76,9 +77,8 @@ const Navigation: FC = () => {
             <input
               type="checkbox"
               value={key}
+              checked={layerGroupKeys[key] ?? true}
               onChange={(e) => checkBoxClickHandler(e, setLayerGroupKeys)}
-              checked={layerGroupKeys[key]}
-              key={Math.random()}
             />
           </label>
         );
