@@ -22,7 +22,16 @@ const Location: FC = () => {
         setClassName(scss.modal);
       },
       () => {
-        alert("位置情報の取得に失敗しました。");
+        const ua = navigator.userAgent;
+
+        if (/iPad|iPhone|iPod/.test(ua)) {
+          alert(
+            "位置情報の取得に失敗しました。\n\n意図せず失敗する場合は、設定 > プライバシー > 位置情報サービス > SafariのWebサイトで、「次回、または共有時に確認」に変更してください。"
+          );
+        } else {
+          alert("位置情報の取得に失敗しました。\n設定をご確認ください。");
+        }
+
         setClassName(scss.modal);
       }
     );
