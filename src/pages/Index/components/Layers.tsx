@@ -45,14 +45,7 @@ const Layers: FC = () => {
               icon: points()[index].icon,
             }).bindPopup(
               ReactDOMServer.renderToString(
-                <Popup
-                  lat={marker.lat}
-                  lng={marker.lng}
-                  type={type}
-                  name={marker.name}
-                  address={marker.details.address}
-                  phone_number={marker.details.phone_number}
-                />
+                <Popup marker={marker} type={type} />
               )
             )
           );
