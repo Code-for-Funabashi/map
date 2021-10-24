@@ -35,14 +35,16 @@ const Layers: FC = () => {
       const types: { [key: string]: boolean } = {};
       const groups: { [key: string]: LayerGroup } = {};
       responses.forEach((response, index) => {
-        const type = points()[index].type;
+        const point = points()[index];
+
+        const type = point.type;
         types[type] = true;
 
         const markers: Marker[] = [];
         response.data.forEach((marker: PointInfo) => {
           markers.push(
             L.marker([marker.lat, marker.lng], {
-              icon: points()[index].icon,
+              icon: point.icon,
             }).bindPopup(
               ReactDOMServer.renderToString(
                 <Popup marker={marker} type={type} />
