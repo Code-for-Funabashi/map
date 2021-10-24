@@ -11,5 +11,9 @@
   .layers {
     display: flex;
     flex-flow: column;
+
+    label {
+      user-select: none;
+    }
   }
 }
