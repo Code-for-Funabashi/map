@@ -22,6 +22,19 @@ const Navigation: FC = () => {
       <div className={scss.layers}>
         <Layers />
       </div>
+
+      <div className={scss.copyright}>
+        データ出典元
+        <p>
+          <a href="https://www.city.funabashi.lg.jp/shisei/toukei/002/opendata.html">
+            船橋データカタログ（船橋市作成）
+          </a>
+          <br />
+          <a href="https://creativecommons.org/licenses/by/4.0/deed.ja">
+            CC BY 4.0
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
