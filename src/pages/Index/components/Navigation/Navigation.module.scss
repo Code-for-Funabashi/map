@@ -13,7 +13,44 @@
     flex-flow: column;
 
     label {
+      display: flex;
+      align-items: center;
       user-select: none;
+      padding: .125rem 0;
+      cursor: pointer;
+
+      span {
+        display: block;
+        width: .9rem;
+        height: .9rem;
+        background: #FFF;
+        border: solid 1px #999;
+        border-radius: .125rem;
+        margin-right: .25rem;
+      }
+
+      input {
+        display: none;
+
+        &:checked ~ span {
+          position: relative;
+          border: none;
+          background: #1AF;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: .1rem;
+            left: .25rem;
+            display: block;
+            width: .25rem;
+            height: .5rem;
+            border-right: solid 2px #FFF;
+            border-bottom: solid 2px #FFF;
+            transform: rotate(45deg);
+          }
+        }
+      }
     }
   }
 }

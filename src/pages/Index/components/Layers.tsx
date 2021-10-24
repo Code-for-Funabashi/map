@@ -77,6 +77,7 @@ const Layers: FC = () => {
               checked={layerGroupKeys[key] ?? true}
               onChange={(e) => checkBoxClickHandler(e, setLayerGroupKeys)}
             />
+            <span />
             {key}
           </label>
         );
