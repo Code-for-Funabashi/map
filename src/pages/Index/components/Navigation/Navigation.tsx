@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import Layers from "components/Map/Layers";
+import Layers from "pages/Index/components/Layers";
 
 import scss from "./Navigation.module.scss";
 
