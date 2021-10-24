@@ -71,13 +71,13 @@ const Layers: FC = () => {
       {Object.keys(layerGroups).map((key, index) => {
         return (
           <label key={index}>
-            {key}
             <input
               type="checkbox"
               value={key}
               checked={layerGroupKeys[key] ?? true}
               onChange={(e) => checkBoxClickHandler(e, setLayerGroupKeys)}
             />
+            {key}
           </label>
         );
       })}
