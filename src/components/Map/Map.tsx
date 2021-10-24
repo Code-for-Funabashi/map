@@ -1,14 +1,12 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import { PointMeta } from "types/Point";
-
 import Navigation from "./Navigation/Navigation";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
 
-const Map = (props: { pointCatalog: PointMeta[] }) => {
+const Map = () => {
   return (
     <MapContainer
       center={position}
