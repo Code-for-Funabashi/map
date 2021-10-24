@@ -2,6 +2,7 @@ import React, { FC, useEffect } from "react";
 import L from "leaflet";
 
 import Layers from "pages/Index/components/Layers";
+import Location from "pages/Index/components/Location/Location";
 
 import scss from "./Navigation.module.scss";
 
@@ -21,6 +22,10 @@ const Navigation: FC = () => {
 
       <div className={scss.layers}>
         <Layers />
+      </div>
+
+      <div className={scss.location}>
+        <Location />
       </div>
 
       <div className={scss.copyright}>
