@@ -5,8 +5,9 @@ import { LatLngExpression } from "leaflet";
 import scss from "./Location.module.scss";
 
 const Location: FC = () => {
-  const [position, setPosition] = useState<LatLngExpression>([
-    35.694722, 139.9825,
+  const [position, setPosition] = useState<[LatLngExpression, number]>([
+    [35.694722, 139.9825],
+    13,
   ]);
   const [className, setClassName] = useState<string>(scss.modal);
   const map = useMap();
@@ -16,13 +17,13 @@ const Location: FC = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       let lat = position.coords.latitude;
       let lng = position.coords.longitude;
-      setPosition([lat, lng]);
+      setPosition([[lat, lng], 16]);
       setClassName(scss.modal);
     });
   };
 
   useEffect(() => {
-    map.setView(position);
+    map.setView(position[0], position[1]);
   }, [map, position]);
 
   return (
