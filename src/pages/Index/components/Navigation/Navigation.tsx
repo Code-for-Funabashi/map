@@ -8,6 +8,9 @@ const Navigation: FC = () => {
   return (
     <div className={scss.navigation}>
       <Layers />
+      <div className={scss.layers}>
+        <Layers />
+      </div>
     </div>
   );
 };

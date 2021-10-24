@@ -3,4 +3,13 @@
   top: 0;
   right: 0;
   z-index: 1500;
+  padding: .5rem;
+  background: #FFF;
+  font-size: .75rem;
+  pointer-events: auto;
+
+  .layers {
+    display: flex;
+    flex-flow: column;
+  }
 }
