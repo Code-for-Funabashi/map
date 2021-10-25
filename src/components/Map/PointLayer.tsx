@@ -1,25 +1,9 @@
 import axios from "axios";
-import type { Icon } from "leaflet";
 import { useState, useEffect } from "react";
+
+import { PointInfo, PointMeta } from "types/Point";
+
 import { Point } from "./Point";
-
-export interface PointMeta {
-  url: string;
-  type: string;
-  icon: Icon;
-}
-
-interface PointInfoDetail {
-  address?: string;
-  phone_number?: string;
-}
-
-export interface PointInfo {
-  name: string;
-  lat: number;
-  lng: number;
-  details: PointInfoDetail;
-}
 
 const loadFeatures = async (url: string) => {
   const res = await axios.get<[PointInfo]>(url);
