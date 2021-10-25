@@ -7,8 +7,10 @@ import {
 import "leaflet/dist/leaflet.css";
 
 import { PointMeta } from "types/Point";
+import { PolygonMeta } from "types/Polygon";
 
 import { PointLayer } from "./PointLayer";
+import { PolygonLayer } from "./PolygonLayer";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
@@ -34,6 +36,13 @@ const Map = (props: {
           return (
             <LayersControl.Overlay name={item.type} key={index} checked>
               <LayerGroup>{PointLayer(item)}</LayerGroup>
+            </LayersControl.Overlay>
+          );
+        })}
+        {props.polygonCatalog.map((item, index) => {
+          return (
+            <LayersControl.Overlay name={item.type} key={index} checked>
+              <LayerGroup>{PolygonLayer(item)}</LayerGroup>
             </LayersControl.Overlay>
           );
         })}
