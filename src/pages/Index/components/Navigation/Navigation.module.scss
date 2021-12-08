@@ -1,0 +1,92 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
+  background: #FFF;
+  font-size: .75rem;
+  cursor: auto;
+  transition: opacity .3s;
+
+  &.transparent {
+    opacity: .5;
+  }
+
+  .app_name {
+    text-align: center;
+    font-size: .85rem;
+    margin: .5rem;
+
+    span {
+      display: inline-block;
+
+      @media screen and (max-width: 750px) {
+        display: block;
+      }
+    }
+  }
+
+  .layers {
+    display: flex;
+    flex-flow: column;
+    margin: .5rem;
+
+    label {
+      display: flex;
+      align-items: center;
+      user-select: none;
+      padding-bottom: .25rem;
+      cursor: pointer;
+
+      &:last-of-type {
+        padding-bottom: 0;
+      }
+
+      span {
+        display: block;
+        width: .9rem;
+        height: .9rem;
+        background: #FFF;
+        border: solid 1px #999;
+        border-radius: .125rem;
+        margin-right: .25rem;
+      }
+
+      input {
+        display: none;
+
+        &:checked ~ span {
+          position: relative;
+          border: none;
+          background: #1AF;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: .1rem;
+            left: .25rem;
+            display: block;
+            width: .25rem;
+            height: .5rem;
+            border-right: solid 2px #FFF;
+            border-bottom: solid 2px #FFF;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+
+  .location {
+    margin: .5rem;
+  }
+
+  .copyright {
+    margin: .5rem;
+    font-size: .5rem;
+  }
+
+  .about {
+    margin: .5rem;
+  }
+}

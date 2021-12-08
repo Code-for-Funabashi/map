@@ -1,0 +1,32 @@
+.button {
+  display: inline-block;
+  padding: .25rem .5rem;
+  border: solid 1px #999;
+  border-radius: .25rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background: #EEE;
+  }
+
+  &:active {
+    background: #DDD;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
+  max-width: 95%;
+  width: 20rem;
+  background: #FFF;
+  padding: 1rem;
+  transform: translate(-50%, -50%);
+
+  &.view {
+    display: block;
+  }
+}
