@@ -1,9 +1,9 @@
-
+import { PathOptions, LatLngExpression } from "leaflet";
 
 export interface PolygonMeta {
     type: string;
     url: string;
-    option: {};
+    option: PathOptions;
   }
 
 
@@ -11,5 +11,5 @@ export interface PolygonMeta {
 export interface PolygonInfo {
     type: any;
     name: string;
-    coordinates: number[][][];
+    coordinates: LatLngExpression[][][];
   }
