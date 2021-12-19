@@ -15,7 +15,7 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
     loadFeatures(polygonMeta.url).then((data) => setFeatures(data));
   }, [polygonMeta]);
 
-  return features.map((feature, index) => (
+  return features.map((feature) => (
     <Polygon
       coordinates={feature.coordinates}
       name={feature.name}

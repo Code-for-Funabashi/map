@@ -38,7 +38,7 @@ const pointCatalog: PointMeta[] = [
 
 const polygonCatalog: PolygonMeta[] = [
   {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/add-gakku/data/kosodate-map/gakku.json",
+    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/gakku.json",
     type: "小学校区",
     option: { color: "purple" },
   },
