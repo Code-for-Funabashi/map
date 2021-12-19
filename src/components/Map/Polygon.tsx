@@ -1,16 +1,18 @@
 import { Popup } from "react-leaflet";
 import { Polygon as POLYGON } from "react-leaflet";
+import { PathOptions } from "leaflet";
+import { PolygonInfo } from "types/Polygon";
 
 export const Polygon = (props: {
-  coordinates: any;
-  name: string;
-  option: {};
+  polygon: PolygonInfo;
+  option: PathOptions;
 }) => {
   return (
-    <POLYGON pathOptions={props.option} positions={props.coordinates}>
+    <POLYGON pathOptions={props.option} positions={props.polygon.coordinates}>
       <Popup>
-        名前: {props.name}
+        種別: {props.polygon.type}
         <br />
+        名前: {props.polygon.name}
       </Popup>
     </POLYGON>
   );
