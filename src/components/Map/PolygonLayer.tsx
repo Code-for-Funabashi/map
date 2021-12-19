@@ -16,10 +16,6 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
   }, [polygonMeta]);
 
   return features.map((feature) => (
-    <Polygon
-      coordinates={feature.coordinates}
-      name={feature.name}
-      option={polygonMeta.option}
-    />
+    <Polygon polygon={feature} option={polygonMeta.option} />
   ));
 };
