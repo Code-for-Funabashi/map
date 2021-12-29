@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Polygon } from "./Polygon";
-
 import { PolygonInfo, PolygonMeta } from "types/Polygon";
 
 const loadFeatures = async (url: string) => {
@@ -15,7 +14,7 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
     loadFeatures(polygonMeta.url).then((data) => setFeatures(data));
   }, [polygonMeta]);
 
-  return features.map((feature) => (
-    <Polygon polygon={feature} option={polygonMeta.option} />
+  return features.map((feature, idx) => (
+    <Polygon polygon={feature} option={polygonMeta.option} key={idx} />
   ));
 };
