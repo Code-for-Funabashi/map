@@ -1,18 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Area } from "./Polygon";
-
-export interface PolygonMeta {
-  type: string;
-  url: string;
-  option: {};
-}
-
-export interface PolygonInfo {
-  type: any;
-  name: string;
-  coordinates: number[][][];
-}
+import { PolygonMeta, PolygonInfo } from "types/Polygon";
 
 const loadFeatures = async (url: string) => {
   const res = await axios.get<PolygonInfo[]>(url);
