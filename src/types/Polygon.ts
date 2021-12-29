@@ -9,7 +9,6 @@ export interface PolygonMeta {
 
 
 export interface PolygonInfo {
-  type: any;
   name: string;
   coordinates: LatLngExpression[][][];
   }

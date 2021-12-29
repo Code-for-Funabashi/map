@@ -15,6 +15,11 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
   }, [polygonMeta]);
 
   return features.map((feature, idx) => (
-    <Polygon polygon={feature} option={polygonMeta.option} key={idx} />
+    <Polygon
+      polygon={feature}
+      type={polygonMeta.type}
+      option={polygonMeta.option}
+      key={idx}
+    />
   ));
 };
