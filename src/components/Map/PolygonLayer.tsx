@@ -19,6 +19,7 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
       polygon={feature}
       type={polygonMeta.type}
       option={polygonMeta.option}
+      // マルチポリゴンを使っていないためnameがユニークにならないので、idxを利用
       key={idx}
     />
   ));
