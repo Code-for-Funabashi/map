@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
 import { PointMeta } from "types/Point";
+import { PolygonMeta } from "types/Polygon";
 
 import Map from "components/Map/Map";
 import { greenIcon, blueIcon } from "components/Map/Icons";
@@ -35,7 +36,15 @@ const pointCatalog: PointMeta[] = [
   },
 ];
 
+const polygonCatalog: PolygonMeta[] = [
+  {
+    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/gakku.json",
+    type: "小学校区",
+    option: { color: "purple" },
+  },
+];
+
 const Index: FC = () => {
-  return <Map pointCatalog={pointCatalog} />;
+  return <Map pointCatalog={pointCatalog} polygonCatalog={polygonCatalog} />;
 };
 export default Index;
