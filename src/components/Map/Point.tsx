@@ -18,6 +18,18 @@ export const Point = (props: {
         住所: {props.point.details.address}
         <br />
         電話番号: {props.point.details.phone_number}
+        <br />
+        待機児童(0歳): {props.point.details.waiting_0yo}
+        <br />
+        待機児童(1歳): {props.point.details.waiting_1yo}
+        <br />
+        待機児童(2歳): {props.point.details.waiting_2yo}
+        <br />
+        待機児童(3歳): {props.point.details.waiting_3yo}
+        <br />
+        待機児童(4歳): {props.point.details.waiting_4yo}
+        <br />
+        待機児童(5歳): {props.point.details.waiting_5yo}
       </Popup>
     </Marker>
   );

@@ -9,6 +9,13 @@ export interface PointMeta {
 export interface PointInfoDetail {
   address?: string;
   phone_number?: string;
+
+  waiting_0yo?: string;
+  waiting_1yo?: string;
+  waiting_2yo?: string;
+  waiting_3yo?: string;
+  waiting_4yo?: string;
+  waiting_5yo?: string;
 }
 
 export interface PointInfo {
