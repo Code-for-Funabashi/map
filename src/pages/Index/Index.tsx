@@ -15,7 +15,7 @@ const pointCatalog: PointMeta[] = [
     icon: greenIcon,
   },
   {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/korituhoikusyoitiran.json",
+    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/hoikuen-latlng/data/kosodate-map/korituhoikusyoitiran.json",
     type: "公立保育園",
     icon: greenIcon,
   },

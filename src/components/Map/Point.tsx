@@ -19,17 +19,17 @@ export const Point = (props: {
         <br />
         電話番号: {props.point.details.phone_number}
         <br />
-        待機児童(0歳): {props.point.details.waiting_0yo}
+        受け入れ人数(0歳): {props.point.details.waiting_0yo}
         <br />
-        待機児童(1歳): {props.point.details.waiting_1yo}
+        受け入れ人数(1歳): {props.point.details.waiting_1yo}
         <br />
-        待機児童(2歳): {props.point.details.waiting_2yo}
+        受け入れ人数(2歳): {props.point.details.waiting_2yo}
         <br />
-        待機児童(3歳): {props.point.details.waiting_3yo}
+        受け入れ人数(3歳): {props.point.details.waiting_3yo}
         <br />
-        待機児童(4歳): {props.point.details.waiting_4yo}
+        受け入れ人数(4歳): {props.point.details.waiting_4yo}
         <br />
-        待機児童(5歳): {props.point.details.waiting_5yo}
+        受け入れ人数(5歳): {props.point.details.waiting_5yo}
       </Popup>
     </Marker>
   );
