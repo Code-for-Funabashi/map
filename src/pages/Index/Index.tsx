@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 
-import Navigation from "pages/Index/components/Navigation/Navigation";
+import Navigation from "./components/Navigation/Navigation";
+import Attribution from "./components/Attribution";
 
 import "leaflet/dist/leaflet.css";
 import "styles/full-screen.scss";
@@ -20,7 +21,7 @@ const Index: FC = () => {
         style={{ height: "100%" }}
       >
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | <a href="http://code4funabashi.org/">CodeForFunabashi</a>'
+          attribution={Attribution()}
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <Navigation />
