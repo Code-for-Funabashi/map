@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 import "styles/full-screen.scss";
 
 //船橋市役所のlat lon
-const position: [number, number] = [35.694722, 139.9825];
+export const position: [number, number] = [35.694722, 139.9825];
 
 const Index: FC = () => {
   return (

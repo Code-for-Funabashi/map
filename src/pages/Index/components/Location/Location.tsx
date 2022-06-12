@@ -2,11 +2,13 @@ import React, { FC, useState, useEffect } from "react";
 import { useMap } from "react-leaflet";
 import { LatLngExpression } from "leaflet";
 
+import { position as cityOfficePosition } from "pages/Index/Index";
+
 import scss from "./Location.module.scss";
 
 const Location: FC = () => {
   const [position, setPosition] = useState<[LatLngExpression, number]>([
-    [35.694722, 139.9825],
+    cityOfficePosition,
     13,
   ]);
   const [className, setClassName] = useState<string>(scss.modal);
