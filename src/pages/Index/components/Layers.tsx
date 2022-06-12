@@ -17,7 +17,9 @@ import Popup from "./Popup";
 
 import { points } from "data/points/points";
 
-const Layers: FC = () => {
+const Layers: FC<{
+  onChange: () => void;
+}> = ({ onChange }) => {
   const map = useMap();
   const [layerGroups, setLayerGroups] = useState<{ [key: string]: LayerGroup }>(
     {}
@@ -68,7 +70,8 @@ const Layers: FC = () => {
         if (layerGroupKeys[key]) map.addLayer(layerGroups[key]);
       }
     });
-  }, [map, layerGroupKeys, layerGroups]);
+    onChange();
+  }, [map, layerGroupKeys, layerGroups, onChange]);
 
   return (
     <>

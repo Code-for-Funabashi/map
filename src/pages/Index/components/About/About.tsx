@@ -5,8 +5,6 @@ import scss from "./About.module.scss";
 const About: FC = () => {
   const [check, setCheck] = useState<boolean>(false);
 
-  console.log(check);
-
   return (
     <>
       <input

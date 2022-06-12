@@ -1,12 +1,23 @@
+#checkbox {
+  display: none;
+
+  &:checked ~ .navigation {
+    top: 0!important;
+  }
+}
+
 .navigation {
   position: fixed;
-  top: 0;
+  top: -300px;
   right: 0;
   z-index: 1500;
   background: #FFF;
   font-size: .75rem;
   cursor: auto;
-  transition: opacity .3s;
+  transition: opacity .3s, top .3s;
+  background-clip: padding-box;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 
   &.transparent {
     opacity: .5;
@@ -81,12 +92,26 @@
     margin: .5rem;
   }
 
-  .copyright {
-    margin: .5rem;
-    font-size: .5rem;
-  }
-
   .about {
     margin: .5rem;
+  }
+
+  .label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -25px;
+    width: 70px;
+    height: 25px;
+    background: #FFF;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #ccc;
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    background-clip: padding-box;
   }
 }
