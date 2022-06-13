@@ -12,7 +12,7 @@ export const Point = (props: {
   return (
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
       <Popup>
-        <NurserySchoolTooltip point={props.point} />
+        <NurserySchoolTooltip point={props.point} type={props.type} />
       </Popup>
     </Marker>
   );
