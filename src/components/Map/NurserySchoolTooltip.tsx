@@ -11,12 +11,10 @@ export const NurserySchoolTooltip = (props: {
       <div className="name">{props.point.name}</div>
       <div className="contents">
         <div className="categories">
-          <span className="category">{props.type}</span>
-          <span className="category">保育園</span>
-          <span className="category">0歳児受入可能</span>
-          <span className="category">1歳児受入可能</span>
-          <span className="category">2歳児受入可能</span>
-          <span className="category">3歳児受入可能</span>
+          <span className="category">{props.point.details.type}</span>
+          <span className="category">
+            受入可能年齢: {props.point.details.acceptable_age}
+          </span>
         </div>
 
         <div className="address">
@@ -33,12 +31,49 @@ export const NurserySchoolTooltip = (props: {
           <div className="title">受入可能人数</div>
           <div className="contents">
             <ul>
-              <li>0歳児 {props.point.details.waiting_0yo}人</li>
-              <li>1歳児 {props.point.details.waiting_1yo}人</li>
-              <li>2歳児 {props.point.details.waiting_2yo}人</li>
-              <li>3歳児 {props.point.details.waiting_3yo}人</li>
-              <li>4歳児 {props.point.details.waiting_4yo}人</li>
-              <li>5歳児 {props.point.details.waiting_5yo}人</li>
+              <li>
+                0歳
+                <br />
+                {props.point.details.waiting_0yo
+                  ? props.point.details.waiting_0yo
+                  : "-"}
+                人
+              </li>
+              <li>
+                1歳 <br />
+                {props.point.details.waiting_1yo
+                  ? props.point.details.waiting_1yo
+                  : "-"}
+                人
+              </li>
+              <li>
+                2歳 <br />
+                {props.point.details.waiting_2yo
+                  ? props.point.details.waiting_2yo
+                  : "-"}
+                人
+              </li>
+              <li>
+                3歳 <br />
+                {props.point.details.waiting_3yo
+                  ? props.point.details.waiting_3yo
+                  : "-"}
+                人
+              </li>
+              <li>
+                4歳 <br />
+                {props.point.details.waiting_4yo
+                  ? props.point.details.waiting_4yo
+                  : "-"}
+                人
+              </li>
+              <li>
+                5歳 <br />
+                {props.point.details.waiting_5yo
+                  ? props.point.details.waiting_5yo
+                  : "-"}
+                人
+              </li>
             </ul>
           </div>
         </div>
