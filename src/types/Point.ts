@@ -25,3 +25,8 @@ export interface PointInfo {
   lng: number;
   details: PointInfoDetail;
 }
+
+export interface NurserySchoolMeta {
+  year: number;
+  month: number;
+}

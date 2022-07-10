@@ -1,15 +1,20 @@
-import { PointInfo } from "types/Point";
+import { PointInfo, NurserySchoolMeta } from "types/Point";
 
 import "./nurserySchoolTooltip.scss";
 
 export const NurserySchoolTooltip = (props: {
   point: PointInfo;
   type: string;
+  meta: NurserySchoolMeta;
 }) => {
   return (
     <div className="card">
       <div className="name">{props.point.name}</div>
+
       <div className="contents">
+        <div>
+          データ取得月: {props.meta.year}年{props.meta.month}月
+        </div>
         <div className="categories">
           <span className="category">{props.point.details.type}</span>
           <span className="category">
@@ -77,6 +82,7 @@ export const NurserySchoolTooltip = (props: {
             </ul>
           </div>
         </div>
+        <div></div>
       </div>
     </div>
   );
