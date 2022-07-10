@@ -2,6 +2,7 @@ import { Icon } from "leaflet";
 
 export interface PointMeta {
   url: string;
+  type: string;
   icon: Icon;
 }
 
