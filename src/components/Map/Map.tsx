@@ -24,15 +24,15 @@ const Map = (props: {
   polygonCatalog: PolygonMeta[];
   inputMetaUrl: string;
 }) => {
-  const [metadata, setMetadata] = useState<InputDataMeta>({
-    hoikuen_yearmonth: "000000",
+  const [metadata, setMetaData] = useState<InputDataMeta>({
+    nursery_school_yearmonth: "000000",
   });
 
   useEffect(() => {
     loadFeature<InputDataMeta>(props.inputMetaUrl).then((data) =>
-      setMetadata(data)
+      setMetaData(data)
     );
-  });
+  }, [props.inputMetaUrl]);
   return (
     <MapContainer
       center={position}
@@ -50,7 +50,18 @@ const Map = (props: {
           return (
             <LayersControl.Overlay name={item.type} key={index} checked>
               <LayerGroup>
-                {PointLayer(item, metadata.hoikuen_yearmonth)}
+                {PointLayer(item, {
+                  year: Number(
+                    metadata.nursery_school_yearmonth
+                      ? metadata.nursery_school_yearmonth.substring(0, 4)
+                      : 0
+                  ),
+                  month: Number(
+                    metadata.nursery_school_yearmonth
+                      ? metadata.nursery_school_yearmonth.substring(4, 6)
+                      : 0
+                  ),
+                })}
               </LayerGroup>
             </LayersControl.Overlay>
           );

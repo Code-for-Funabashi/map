@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 
-import { PointInfo, PointMeta } from "types/Point";
+import { PointInfo, PointMeta, NurserySchoolMeta } from "types/Point";
 
 import { Point } from "./Point";
 import { loadFeatures } from "./util";
 
-export const PointLayer = (pointMeta: PointMeta, hoikuen_yearmonth: string) => {
+export const PointLayer = (
+  pointMeta: PointMeta,
+  nurserySchoolMeta: NurserySchoolMeta
+) => {
   const [features, setFeatures] = useState<PointInfo[]>([]);
 
   useEffect(() => {
@@ -17,7 +20,7 @@ export const PointLayer = (pointMeta: PointMeta, hoikuen_yearmonth: string) => {
       point={feature}
       type={pointMeta.type}
       icon={pointMeta.icon}
-      hoikuen_yearmonth={hoikuen_yearmonth}
+      nurserySchoolMeta={nurserySchoolMeta}
       key={feature.name}
     />
   ));

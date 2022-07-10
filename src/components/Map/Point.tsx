@@ -1,14 +1,15 @@
 import type { Icon } from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 
-import { PointInfo } from "types/Point";
+import { PointInfo, NurserySchoolMeta } from "types/Point";
+
 import { NurserySchoolTooltip } from "./NurserySchoolTooltip";
 
 export const Point = (props: {
   point: PointInfo;
   type: string;
   icon: Icon;
-  hoikuen_yearmonth: string;
+  nurserySchoolMeta: NurserySchoolMeta;
 }) => {
   return (
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
@@ -16,10 +17,7 @@ export const Point = (props: {
         <NurserySchoolTooltip
           point={props.point}
           type={props.type}
-          meta={{
-            year: Number(props.hoikuen_yearmonth.substring(0, 4)),
-            month: Number(props.hoikuen_yearmonth.substring(4, 6)),
-          }}
+          meta={props.nurserySchoolMeta}
         />
       </Popup>
     </Marker>
