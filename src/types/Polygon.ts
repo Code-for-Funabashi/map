@@ -4,11 +4,10 @@ export interface PolygonMeta {
   type: string;
   url: string;
   option: PathOptions;
-  }
-
-
+}
 
 export interface PolygonInfo {
   name: string;
   coordinates: LatLngExpression[][][];
-  }
+}
+

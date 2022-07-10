@@ -8,6 +8,7 @@ export const Point = (props: {
   point: PointInfo;
   type: string;
   icon: Icon;
+  hoikuen_yearmonth: string;
 }) => {
   return (
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
@@ -15,7 +16,10 @@ export const Point = (props: {
         <NurserySchoolTooltip
           point={props.point}
           type={props.type}
-          meta={{ year: 2022, month: 5 }}
+          meta={{
+            year: Number(props.hoikuen_yearmonth.substring(0, 4)),
+            month: Number(props.hoikuen_yearmonth.substring(4, 6)),
+          }}
         />
       </Popup>
     </Marker>

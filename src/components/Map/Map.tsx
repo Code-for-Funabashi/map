@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -8,9 +9,12 @@ import "leaflet/dist/leaflet.css";
 
 import { PointMeta } from "types/Point";
 import { PolygonMeta } from "types/Polygon";
+import { InputDataMeta } from "types/Meta";
 
 import { PointLayer } from "./PointLayer";
 import { PolygonLayer } from "./PolygonLayer";
+
+import { loadFeature } from "./util";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
@@ -18,7 +22,17 @@ const position: [number, number] = [35.694722, 139.9825];
 const Map = (props: {
   pointCatalog: PointMeta[];
   polygonCatalog: PolygonMeta[];
+  inputMetaUrl: string;
 }) => {
+  const [metadata, setMetadata] = useState<InputDataMeta>({
+    hoikuen_yearmonth: "000000",
+  });
+
+  useEffect(() => {
+    loadFeature<InputDataMeta>(props.inputMetaUrl).then((data) =>
+      setMetadata(data)
+    );
+  });
   return (
     <MapContainer
       center={position}
@@ -35,7 +49,9 @@ const Map = (props: {
         {props.pointCatalog.map((item, index) => {
           return (
             <LayersControl.Overlay name={item.type} key={index} checked>
-              <LayerGroup>{PointLayer(item)}</LayerGroup>
+              <LayerGroup>
+                {PointLayer(item, metadata.hoikuen_yearmonth)}
+              </LayerGroup>
             </LayersControl.Overlay>
           );
         })}

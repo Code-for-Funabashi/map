@@ -29,7 +29,16 @@ const polygonCatalog: PolygonMeta[] = [
   },
 ];
 
+const inputMetaUrl =
+  "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/hoikuen-latlng/data/meta.json";
+
 const Index: FC = () => {
-  return <Map pointCatalog={pointCatalog} polygonCatalog={polygonCatalog} />;
+  return (
+    <Map
+      pointCatalog={pointCatalog}
+      polygonCatalog={polygonCatalog}
+      inputMetaUrl={inputMetaUrl}
+    />
+  );
 };
 export default Index;
