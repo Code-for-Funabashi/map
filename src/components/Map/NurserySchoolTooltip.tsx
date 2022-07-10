@@ -1,6 +1,6 @@
 import { PointInfo, NurserySchoolMeta } from "types/Point";
 
-import "./nurserySchoolTooltip.scss";
+import "./tooltip.scss";
 
 export const NurserySchoolTooltip = (props: {
   point: PointInfo;
@@ -82,7 +82,6 @@ export const NurserySchoolTooltip = (props: {
             </ul>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   );
