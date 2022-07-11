@@ -1,6 +1,6 @@
 import { PointInfo, NurserySchoolMeta } from "types/Point";
 
-import "./tooltip.scss";
+import tooltip from "./tooltip.module.scss";
 
 export const NurserySchoolTooltip = (props: {
   point: PointInfo;
@@ -8,33 +8,35 @@ export const NurserySchoolTooltip = (props: {
   meta: NurserySchoolMeta;
 }) => {
   return (
-    <div className="card">
-      <div className="name">{props.point.name}</div>
+    <div className={tooltip.card}>
+      <div className={tooltip.name}>{props.point.name}</div>
 
-      <div className="contents">
+      <div className={tooltip.contents}>
         <div>
           データ取得月: {props.meta.year}年{props.meta.month}月
         </div>
-        <div className="categories">
-          <span className="category">{props.point.details.type}</span>
-          <span className="category">
+        <div className={tooltip.categories}>
+          <span className={tooltip.category}>{props.point.details.type}</span>
+          <span className={tooltip.category}>
             受入可能年齢: {props.point.details.acceptable_age}
           </span>
         </div>
 
-        <div className="address">
-          <div className="title">住所</div>
-          <div className="contents">{props.point.details.address}</div>
+        <div className={tooltip.address}>
+          <div className={tooltip.title}>住所</div>
+          <div className={tooltip.contents}>{props.point.details.address}</div>
         </div>
 
-        <div className="contacts">
-          <div className="title">連絡先</div>
-          <div className="contents">{props.point.details.phone_number}</div>
+        <div className={tooltip.contacts}>
+          <div className={tooltip.title}>連絡先</div>
+          <div className={tooltip.contents}>
+            {props.point.details.phone_number}
+          </div>
         </div>
 
-        <div className="capacities">
-          <div className="title">受入可能人数</div>
-          <div className="contents">
+        <div className={tooltip.capacities}>
+          <div className={tooltip.title}>受入可能人数</div>
+          <div className={tooltip.contents}>
             <ul>
               <li>
                 0歳
