@@ -35,7 +35,7 @@ export const NurserySchoolTooltip = (props: {
         </div>
 
         <div className={tooltip.capacities}>
-          <div className={tooltip.title}>受入可能人数</div>
+          <div className={tooltip.title}>待機児童人数</div>
           <div className={tooltip.contents}>
             <ul>
               <li>
