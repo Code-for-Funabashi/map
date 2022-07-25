@@ -1,17 +1,15 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { Polygon } from "./Polygon";
 import { PolygonInfo, PolygonMeta } from "types/Polygon";
 
-const loadFeatures = async (url: string) => {
-  const res = await axios.get<PolygonInfo[]>(url);
-  return res.data;
-};
+import { loadFeatures } from "./util";
 
 export const PolygonLayer = (polygonMeta: PolygonMeta) => {
   const [features, setFeatures] = useState<PolygonInfo[]>([]);
   useEffect(() => {
-    loadFeatures(polygonMeta.url).then((data) => setFeatures(data));
+    loadFeatures<PolygonInfo>(polygonMeta.url).then((data) =>
+      setFeatures(data)
+    );
   }, [polygonMeta]);
 
   return features.map((feature, idx) => (

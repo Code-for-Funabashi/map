@@ -1,0 +1,114 @@
+// LeafletのリセットCSS
+.leaflet-popup-content-wrapper {
+    padding: 0;
+    box-shadow: none;
+}
+
+.leaflet-popup-content {
+    position: relative;
+    margin: 0;
+}
+
+.leaflet-popup-close-button {
+    top: calc(((.9rem * 1.4 + 1.5rem) - 1rem) / 2) !important;
+    right: .5rem !important;
+    display: block;
+    width: 1rem !important;
+    height: 1rem !important;
+    color: #222 !important;
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 1rem;
+        height: 2px;
+        background: #FFF;
+    }
+
+    &::after {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}
+
+.card {
+    border-radius: .75rem;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    border: none;
+
+    & > .name {
+        padding: .75rem 2rem;
+        background: #222;
+        color: #FFF;
+        text-align: center;
+        font-size: .9rem;
+    }
+
+    & > .contents {
+        font-size: .9rem;
+        padding: .75rem 1rem;
+
+        div {
+            margin-bottom: .75rem;
+
+            .title {
+                margin-bottom: .375rem;
+            }
+
+            .contents {
+                font-size: .8rem;
+            }
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            font-size: .8rem;
+
+            .category {
+                padding: .375rem .75rem;
+                background: #EEE;
+                border-radius: 9999px;
+                margin-right: .35rem;
+                margin-bottom: .5rem;
+                font-size: .8rem;
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .postal-code {
+            display: inline-block;
+            font-size: .7rem;
+        }
+
+        .capacities {
+
+            ul {
+                display: flex;
+                list-style: none;
+                margin-bottom: -.4rem;
+
+                li {
+                    margin-bottom: .4rem;
+                    margin-right: 1rem;
+                    font-size: .8rem;
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
