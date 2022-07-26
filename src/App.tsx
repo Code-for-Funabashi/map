@@ -7,7 +7,7 @@ const App: FC = () => {
   return (
     <>
       <Router>
-        <Route exact path="/" component={Index} />
+        <Route path="/" element={<Index />} />
       </Router>
     </>
   );
