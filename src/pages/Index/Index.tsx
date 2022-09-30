@@ -10,7 +10,7 @@ import "styles/full-screen.scss";
 
 const pointCatalog: PointMeta[] = [
   {
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/main/data/kosodate-map/hoikuen.json",
+    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/acceptable-number/data/kosodate-map/hoikuen.json",
     type: "保育園",
     icon: greenIcon,
   },
