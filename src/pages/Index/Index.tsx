@@ -16,7 +16,7 @@ const pointCatalog: PointMeta[] = [
   },
   {
     // TODO: マージしたら向き先修正
-    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/kouminkan/data/kosodate-map/kouminkan.json",
+    url: "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/acceptable-number/data/kosodate-map/kouminkan.json",
     type: "公民館",
     icon: blueIcon,
   },
