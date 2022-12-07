@@ -13,7 +13,7 @@ export const NurserySchoolTooltip = (props: {
 
       <div className={tooltip.contents}>
         <div>
-          データ取得月: {props.meta.year}年{props.meta.month}月
+          対象年月: {props.meta.year}年{props.meta.month}月
         </div>
         <div className={tooltip.categories}>
           <span className={tooltip.category}>{props.point.details.type}</span>
